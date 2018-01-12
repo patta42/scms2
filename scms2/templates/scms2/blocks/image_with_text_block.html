@@ -1,0 +1,31 @@
+{% load wagtailimages_tags %}
+<div class="imglist-item child">
+  {% image value.image original as orig %}
+  {% if value.size != "0" %}
+  <div class="img-container w{{value.size}}">
+    <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+      <a href="{{orig.url}}" data-size="{{orig.width}}x{{orig.height}}" data-index="{{forloop.counter0}}">
+    {% if value.size == "150" %}
+      {% image value.image width-150 as thumb%}
+    {% elif value.size == "200" %} 
+      {% image value.image width-200 as thumb%}
+    {% else %}
+      {% image value.image width-300 as thumb%}
+    {% endif %}
+    <img src="{{thumb.url}}" title="{% if value.heading %}{{value.heading}}{% endif %}{% if value.subline %}{% if value.heading %}: {%endif %}{{value.subline}}{% if value.subline2%} ({{value.subline2}}){%endif%}{% endif %}" alt="{{value.heading}}" />
+    </a>
+    </figure>
+  </div>
+  <div class="img-label">
+    {% if value.heading %}<div class="headline">{{ value.heading }}</div>{% endif %}
+    {% if value.subline %}<div class="subline">{{ value.subline }}{%if value.subline2 %}<br />{{value.subline2}}{% endif %}</div>{% endif %}
+  </div>
+  {% else %}
+  <div class="img-label no-image">
+      <a href="{{orig.url}}" data-size="{{orig.width}}x{{orig.height}}" data-index="{{forloop.counter0}}">
+	    {% if value.heading %}<div class="headline">{{ value.heading }}</div>{% endif %}
+	    {% if value.subline %}<div class="subline">{{ value.subline }}{%if value.subline2 %}<br />{{value.subline2}}{% endif %}</div>{% endif %}
+      </a>
+  </div>
+  {% endif %}
+</div>

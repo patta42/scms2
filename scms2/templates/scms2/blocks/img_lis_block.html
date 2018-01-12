@@ -1,0 +1,4 @@
+{% load wagtailcore_tags %}
+<div class="imglist">
+  {% for item in value %}{% includeblock item %}{% endfor %}
+</div>

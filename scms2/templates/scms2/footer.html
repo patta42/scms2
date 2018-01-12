@@ -1,0 +1,21 @@
+{% load scms2_tags %}
+<div class="textwrapper">
+    <h2>Über den Tellerrand</h2>
+  <div class="footer-wrapper">
+
+    <div class="inner-wrapper">
+      <div class="col50">
+	<h3>Neueste Fotoalben:</h3>
+	<dl class="fotoalben">
+	  {% footer_alben page %}
+	</dl>
+      </div>
+      <div class="col50 last">
+	<h3>Neueste Berichte:</h3>
+	<dl>
+	  {% footer_article page %}
+	</dl>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,16 @@
+{% load wagtailcore_tags %}
+<ul>
+{% for page in pages %}
+  <li><a href="{% pageurl page %}">{{page}}</a>
+    {% if page.get_children %}
+      <ul>
+      {% for child in page.get_children %}
+        {% if page.live %}
+          <li><a href="{% pageurl child %}">{{child}}</a></li>
+        {% endif %}
+      {% endfor %}
+      </ul>
+    {% endif %}
+  </li>
+{% endfor %}
+</ul>

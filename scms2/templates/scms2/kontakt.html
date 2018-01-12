@@ -1,0 +1,15 @@
+{% extends "base2017-single.html" %}
+
+{% block content %}
+<article>
+  <header>
+    <h2>Kontakt zur {{site.root_page}}</h2>
+  </header>
+  <div class="maincontent">
+    {% include 'scms2/kontaktperson.html' with person=settings.scms2.Hauptkontaktperson %}
+    {% if settings.scms2.Zweitkontaktperson %}
+    {% include 'scms2/kontaktperson.html' with person=settings.scms2.Zweitkontaktperson %}
+    {% endif %}
+  </div>
+</article>
+{% endblock %}

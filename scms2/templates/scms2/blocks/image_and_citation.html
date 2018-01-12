@@ -1,0 +1,8 @@
+{% load wagtailimages_tags %}
+
+<div class="image-and-citation">
+  {% image value.img  fill-300x200 %}
+  <p>
+    {{ value.zitat }}
+  </p>
+</div>

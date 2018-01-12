@@ -1,0 +1,14 @@
+<p>
+  {% if person.position %}
+  <strong>{{ person.position }}</strong><br />
+  {{ person.name }}<br/>
+  {% else %}
+  <strong>{{ person.name }}</strong><br />
+  {% endif %}
+  {{ person.strasse }}<br/>
+  {{ person.plzort }}<br/>
+  {{ person.tel }}<br/>
+  {% if person.email %}
+  <a href="mailto:{{ person.email }}">{{ person.email }}</a>
+  {% endif %}
+</p>

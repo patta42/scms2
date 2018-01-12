@@ -1,0 +1,8 @@
+{% load wagtailimages_tags wagtailcore_tags %}
+{% for album in alben %}
+  {% if album.album %}
+  <dt>{{album.name}}</dt>
+  <dd><a href="{%pageurl album.album %}">{% image album.album.get_head_image fill-80x80 %}{{album.album}}</a><br />Enthaltene Bilder: {{album.album.specific.verlinkte_bilder.count }}
+  </dd>
+  {% endif %}
+{% endfor %}

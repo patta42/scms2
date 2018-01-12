@@ -1,0 +1,9 @@
+<ol>{% for item in items %}
+  <li>
+  {% if item.content %}{{ item.content }}{% endif %}
+  {% if item.has_children %}
+  {% include "scms2/blocks/ol_block_for_list.html" with items=item.children %}
+  {% endif %}
+  </li>
+{% endfor %}
+</ol>

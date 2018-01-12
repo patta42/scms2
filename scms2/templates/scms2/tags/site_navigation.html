@@ -1,0 +1,6 @@
+{% load wagtailcore_tags %}
+<nav id="nav">
+  <ul>{% for site in sites %}
+    <li{% if site.active %} class="active"{% endif %}><a href="{% pageurl site.root %}">{{ site.name }}</a></li>{% endfor %}
+  </ul>
+</nav>

@@ -1,0 +1,27 @@
+{% load wagtailcore_tags scms2_tags %}
+
+<div class="6u">
+<section>
+  <header>
+    <h2>Über den Tellerrand</h2>
+  </header>
+  <p>
+    Hier finden Sie Links auf die aktuellen Berichte und Fotoalben der
+    anderen Vereine.
+  </p>
+  {% if latest_articles %}
+  <dl>
+    {% for article in latest_articles %}
+    <dt>{{ article.site.site_name }}:</dt>
+    <dd><a href="{% pageurl article.page %}">
+	{{article.date|date:"d. F Y"}}: {{article.page}}
+    </a></dd>
+    {% endfor %}
+  </dl>
+  {% endif %}
+</section>
+
+</div>
+<div class="3u"></div>
+<div class="3u"></div>
+
