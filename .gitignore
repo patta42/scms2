@@ -103,3 +103,4 @@ ENV/
 # production settings file for wagtail
 
 scms2/settings/production.py
+scms2/settings/local.py
