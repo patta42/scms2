@@ -30,6 +30,9 @@ DATABASES = {
 Außerdem in diese Datei noch einen `SECRET_KEY` einfügen. Man kann auch die
 Beispiel-Datei `scms2/settings/local.py.example` einfach umbenennen.
 
+Für die nächsten Teile in das verzeichnis `scms2` wechseln und die Datei
+`manage.py` ausführbar machen. Ansonsten `python3 manage.py ...` verwenden.
+
 Dann die Datenstruktur migrieren:
 
 `./manage.py migrate`
