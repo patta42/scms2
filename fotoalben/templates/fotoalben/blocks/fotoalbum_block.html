@@ -1,0 +1,45 @@
+{% load wagtailcore_tags wagtailimages_tags %}
+{% if value.show_as == 'single' %}
+  {% with img=value.album.specific.get_head_image %}
+  {% if value.style == 'full' %}
+  <div class="imagebox"> 
+    {% image img fill-650x300 %}
+  {% elif value.style == 'right_sm' %}
+  <div class="imagebox fr sm"> 
+    {% image img width-220 %}
+  {% elif value.style == 'left_sm' %}
+  <div class="imagebox fl sm"> 
+    {% image img width-220 %}
+  {% elif value.style == 'left_med' %}
+  <div class="imagebox fl mid"> 
+    {% image img width-325 %}
+  {% elif value.style == 'right_med' %}
+  <div class="imagebox fr mid"> 
+    {% image img width-325 %}
+  {% endif %}
+    {% if value.caption %}
+    <p>
+      {{ value.caption }}
+    </p>
+    {% endif %}
+    {% if value.link %}
+      <a href="{% pageurl value.album %}" >Alle Bilder ansehen</a>
+    {% endif %}
+    </div>
+  {% endwith %}
+{% else %}
+  <div class="imagebox">
+    <h3>{{ value.album.title }}</h3>
+  <div class="fotoalbum-karussell">
+    {% for img in value.album.specific.verlinkte_bilder.all %}
+    <div>
+      {% image img.linked_image max-630x630 %}
+      {% if value.auto_caption %}<p>{{img.linked_image.title}}</p>{% endif %}
+    </div>
+    {% endfor %}
+  </div>
+  {% if value.link %}
+    <a href="{% pageurl value.album %}" >Alle Bilder ansehen</a>
+  {% endif %}
+  </div>
+{% endif %}
