@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     'wagtailfontawesome',
     'wagtail.contrib.table_block',
     'wagtail.contrib.settings', 
-    'wagtail_simple_gallery',
+#    'wagtail_simple_gallery',
     'wagtail.wagtailforms',
     'wagtail.wagtailredirects',
     'wagtail.wagtailembeds',
