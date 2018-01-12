@@ -1,0 +1,66 @@
+{% load wagtailimages_tags i18n staticfiles %}
+{% trans "Choose or add images" as choose_str %}
+{% include "wagtailadmin/shared/header.html" with title=choose_str merged=1 tabbed=1 icon="image" add_link="fotoalben:chooser-select" add_text="Add selected and uploaded images"%}
+
+
+{% if uploadform %}
+    <ul class="tab-nav merged">
+        <li class="{% if not uploadform.errors %}active{% endif %}"><a href="#search" >{% trans "Search" %}</a></li>
+        <li class="{% if uploadform.errors %}active{% endif %}"><a href="#upload">{% trans "Upload" %}</a></li>
+    </ul>
+{% endif %}
+
+<div class="tab-content">
+    <section id="search" class="{% if not uploadform.errors %}active{% endif %} nice-padding">
+        <form class="image-search search-bar" action="{% url 'fotoalben:chooser' %}{% if will_select_format %}?select_format=true{% endif %}" method="GET" autocomplete="off" novalidate>
+            <ul class="fields">
+                {% for field in searchform %}
+                    {% include "wagtailadmin/shared/field_as_li.html" with field=field %}
+                {% endfor %}
+            <input type="hidden" id="collection_chooser_collection_id" name="collection_id" value="{{ collection.id }}" />
+
+                {% if popular_tags %}
+                    <li class="taglist">
+                        <h3>{% trans 'Popular tags' %}</h3>
+                        {% for tag in popular_tags %}
+                            <a class="suggested-tag tag" href="{% url 'wagtailimages:index' %}?tag={{ tag.name|urlencode }}">{{ tag.name }}</a>
+                        {% endfor %}
+                    </li>
+                {% endif %}
+            </ul>
+        </form>
+        <div id="image-results">
+            {% include "fotoalben/multichooser/results.html" %}
+        </div>
+
+    </section>
+    {% if uploadform %}
+    <section id="upload" class="{% if uploadform.errors %}active{% endif %} nice-padding">
+      <div class="nice-padding">
+        <div class="drop-zone">
+          <p>{% trans "Drag and drop images into this area to upload immediately." %}</p>
+          <p>{{ help_text }}</p>
+
+          <form action="{% url 'wagtailimages:add_multiple' %}" method="POST" enctype="multipart/form-data">
+            <div class="replace-file-input">
+              <button class="button bicolor icon icon-plus">{% trans "Or choose from your computer" %}</button>
+              <input id="fileupload" type="file" name="files[]" data-url="{% url 'wagtailimages:add_multiple' %}" multiple>
+            </div>
+            {% csrf_token %}
+
+
+            <input type="hidden" name="collection" value="{{ collection.id }}" />
+
+
+          </form>
+        </div>
+	
+        <div id="overall-progress" class="progress progress-secondary">
+          <div class="bar" style="width: 0%;">0%</div>
+        </div>
+
+        <ul id="upload-list" class="upload-list multiple"></ul>
+      </div>
+    </section>
+    {% endif %}
+</div>

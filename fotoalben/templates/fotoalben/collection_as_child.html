@@ -1,0 +1,13 @@
+{% load scms2_tags wagtailcore_tags %}
+<div class="child">
+  <article>
+    <header>
+      <h{{depth|add:3}}>{{ page.title }}</h{{depth|add:3}}>
+      <p>{% if page.get_num_collections > 0%}, Sammlungen: {{page.get_num_collections}}, {% endif %}Alben:
+      {{page.get_num_albums}}, Bilder gesamt: {{page.get_num_pics}}. <a href="{% pageurl page %}">Diese Sammlung ansehen</a>.</p>
+    </header>
+    {% for subchild in page.get_children %}
+    {% call_render_as_child subchild.specific depth %}
+    {% endfor %}
+  </article>
+</div>

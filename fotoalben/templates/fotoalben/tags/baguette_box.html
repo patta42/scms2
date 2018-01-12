@@ -1,0 +1,7 @@
+{% load wagtailimages_tags %}
+<section class="bag-box-link-collection">
+  {% for img in images %}
+  {% image img.linked_image original as orig %}
+  <a href="{{ orig.url }}"></a>
+  {% endfor %}
+</section>

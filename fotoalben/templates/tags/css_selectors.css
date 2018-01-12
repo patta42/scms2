@@ -1,0 +1,16 @@
+{% load wagtailcore_tags %}
+.image-gallery section{
+  display: none;
+}
+
+{% for n in sections %}
+.image-gallery span:nth-of-type({{ n|add:1 }}):target ~ section:nth-of-type({{ n|add:1 }}),
+{% endfor %}
+.image-gallery span:nth-of-type(1):not(:target)
+{% for n in sections %}
+~ span:nth-of-type({{ n|add:1 }}):not(:target)
+{% endfor %}
+~ section:nth-of-type(1)
+  {
+    display:block;
+  }

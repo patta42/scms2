@@ -1,0 +1,29 @@
+{% extends "base2017-single.html" %}
+{% load wagtailcore_tags wagtailroutablepage_tags %}
+{% block content %}
+<article>
+  <div class="maincontent">
+  <header>
+    <h2>{{ page.title}} </h2>
+  </header>
+  {% for child in page.get_children %}
+  <h3>{{ child }}</h3>
+    {% for grandchild in child.get_children %}
+      <div><a href="{% pageurl grandchild %}">{{ grandchild }}</a></div>
+    {% endfor %}
+  {% endfor %}
+  </div>
+  <aside>
+    <div class="related">
+      <h4>Auflistung nach Schlagworten</h4>
+      {% if page.get_tags %}
+      <ul>
+        {% for tag in page.get_tags %}
+	<li><a href="{% routablepageurl page "tag_archive" tag.slug %}">{{tag}}</a></li>
+        {% endfor %}
+      </ul>
+      {% endif %}
+    </div>
+  </aside>
+</article>
+{% endblock %}

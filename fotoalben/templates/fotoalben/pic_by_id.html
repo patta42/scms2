@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% load wagtailimages_tags wagtailcore_tags scms2_tags static %}
+{% block extra_css %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/fotoalben.css' %}">
+<style>
+  .display-image{
+    text-align:center;
+  }
+  .display-image img{
+    max-width:100%;
+    height:auto;
+    margin:0 auto;
+  }
+
+</style>
+{% endblock %}
+{% block content %}
+<article>
+  <header id="image-header">
+    <h2>{{page.title}}</h2>
+  </header>
+  {% shariff page image.id %}
+  {% if prev %}
+  <div class="display-image">
+    {% image image.linked_image original %}
+    <div class="image-navigation">
+
+      <a href="{% pageurl page %}{{ prev.id }}/#image-header" class="button back"><i class="fa fa-lg fa-caret-left"></i><span>Zurück</span></a>
+      {% else %}
+      <a class="button back"><i class="fa fa-lg fa-caret-left"></i><span>Zurück</span></a>
+  {% endif %}
+
+  {% if next %}
+  <a href="{% pageurl page %}{{ next.id }}/#image-header" class="button fwd"><span>Vor</span><i class="fa fa-caret-right"></i></a>
+  {% else %}
+  <a class="button fwd"><span>Vor</span><i class="fa fa-caret-right"></i></a>
+
+  {% endif %}
+  Bild {{image.sort_order|add:1 }} von {{ n_images }}
+  </div>
+  </div>
+</article>
+{% endblock %}
+

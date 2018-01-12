@@ -1,0 +1,161 @@
+{% extends "base2017-single.html" %}
+{% load wagtailcore_tags wagtailimages_tags scms2_tags fotoalben_tags static %}
+
+{% block body_class %}template-fotoalbum{% endblock %}
+{% block extra_css %}
+  <link rel="stylesheet" type="text/css" href="{% static 'css/photoswipe.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'js/default-skin/default-skin.css' %}">
+{% endblock %}
+{% block extra_js %}
+  <script src="{% static 'js/photoswipe.min.js' %}"></script>
+  <script src="{% static 'js/photoswipe-ui-default.min.js' %}"></script>
+  <script src="{% static 'js/init-photoswipe.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+    <article>
+      <header>
+	<h2>
+	  <span>Fotoalbum</span> {{ page.title }}
+	</h2>
+      </header>
+      <div class="maincontent">
+ 	{% if page.einleitung %}
+	  <div class="einleitung">{{ page.einleitung }}</div>
+	{% endif %}
+	  <ul class="fotoalbum">
+	    {% for linked_img in page.verlinkte_bilder.all %}
+	    <li>
+	      <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+		{% with img=linked_img.linked_image %}
+		{% image img original as orig %}{% image img fill-200x200 as thumb %}<a href="{{ orig.url }}" data-size="{{ orig.width}}x{{orig.height}}" data-index="{{forloop.counter0}}">
+		  <img src="{{thumb.url}}" alt="{{thumb.alt}}" />
+		</a>
+		{% endwith %}
+	      </figure>
+	    </li>
+	    {% endfor %}
+	  </ul>
+      </div>
+      <aside>
+	{% if page.get_article_date %}
+	<dl>
+	  <dt>Verfasst am:</dt>
+	  <dd>{{ page.get_article_date|date:"d. F Y" }}</dd>
+	</dl>
+	{% endif %}
+	{% shariff page %}
+	{% if page.get_neighbors|length > 0 %}
+	<dl class="fotoalben-liste">
+	  <dt>Verwandte Fotoalben:</dt>
+	  {% for sibling in page.get_neighbors %}
+	  <dd><a href="{% pageurl sibling %}">
+	      {% image sibling.get_head_image fill-150x150 %}
+	      <span><span>{{sibling}}</span></span></a>
+	  </dd>
+	  {% endfor %}
+        </dl>
+	  {% endif %}
+      </aside>
+    </article>
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+{% comment %}
+    <article>
+	<div class="image-gallery">
+	  {% for i in sections %}
+	  <span id="image-gallery-{{ forloop.counter0 }}" class="target-fix"></span>
+	  {% endfor %}
+	  {% for section in sections %}
+   	  <section> 
+	    <div class="inner-section-container">
+	    {% for img in section %}
+	    <div class="image-container {% cycle 'w200' 'w300' 'w200' 'w350' 'w350' %}">
+	      <div class="image-container-{% cycle 'w200' 'w300' 'w200' 'w350' 'w350' %}">
+
+		{% image img.linked_image original as orig %}
+		<a href="{% pageurl page %}{{ img.id }}/" data-at-200="{{ orig.url }}">
+		{% image img.linked_image fill-350x300 %}		
+		</a>
+	      </div>
+	    </div>
+	    {% endfor %}
+	    <br style="clear:both"/>
+	    </div>
+	    {% subpage_nav forloop.counter0 sections|length %}
+	  </section>
+	  {% endfor %}
+{#	  {% baguette_box_html bilder %}  #}
+	</div>
+      <aside>
+      {% shariff page %}
+      </aside>	
+    </article>
+{% endcomment %}
+{% endblock %}
+
+

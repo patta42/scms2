@@ -1,0 +1,29 @@
+{% extends "base2017-single.html" %}
+{% load wagtailcore_tags wagtailroutablepage_tags %}
+{% block content %}
+<article>
+  <div class="maincontent">
+    <header>
+      <h3>{{ page.title }} mit Schlagwort</h3>
+      <h2>{{tag}}</h2>
+    </header>
+    <div class="fotoalbum-list">
+      {% for album in fotoalben %}
+        {% include "fotoalben/fotoalbum_as_child.html" with page=album breadcrumb=1 depth=0%}
+      {% endfor %}
+    </div>
+  </div>
+  <aside>
+    <div class="related">
+      <h4>Auflistung nach Schlagworten</h4>
+      {% if page.get_tags %}
+      <ul>
+        {% for tag in page.get_tags %}
+	<li><a href="{% routablepageurl page "tag_archive" tag.slug %}">{{tag}}</a></li>
+        {% endfor %}
+      </ul>
+      {% endif %}
+    </div>
+  </aside>
+</article>
+{% endblock %}

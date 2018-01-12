@@ -1,0 +1,20 @@
+{% load wagtailimages_tags wagtailcore_tags %}
+<div class="child">
+  <article>
+    <header>
+      <h{{depth|add:3}}>
+	{% if breadcrumb %}
+	<span class="breadcrumb">{% for container in page.specific.get_parent_containers %}{% if forloop.counter0 > 0 %} » {%endif%}{{container}}{% endfor %}</span>
+	{% endif %}
+	{{ page.title }}</h{{depth|add:3}}>
+    </header>
+    <span class="fotoalbum-teaser-img">
+      {% image page.get_head_image fill-150x150 %}
+    </span>
+    <dl>
+      <dt>Bilder:</dt>
+      <dd>{{ page.verlinkte_bilder.all|length }}</dd>
+    </dl>
+    <p><a href="{% pageurl page %}">Fotoalbum ansehen</a></p>
+  </article>
+</div>

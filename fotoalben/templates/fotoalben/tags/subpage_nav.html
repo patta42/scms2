@@ -1,0 +1,14 @@
+{% load wagtailcore_tags %}
+<nav class="fotoalbum-nav">
+  {% if curr > 0 %}
+  <a class="button back" href="./#image-gallery-{{ curr|add:-1 }}"><i class="fa fa-lg fa-caret-left"></i><span>Zurück</span></a>
+  {% else %}
+  <a class="button back"><i class="fa fa-lg fa-caret-left"></i><span>Zurück</span></a>
+  {% endif %}
+  Seite {{curr|add:1}} von {{max}}
+  {% if curr|add:1 < max %}
+  <a class="button fwd" href="./#image-gallery-{{ curr|add:1 }}"><span>Vor</span><i class="fa fa-caret-right"></i></a>
+  {% else %}
+  <a class="button fwd"><span>Vor</span><i class="fa fa-caret-right"></i></a>
+  {% endif %}
+</nav>

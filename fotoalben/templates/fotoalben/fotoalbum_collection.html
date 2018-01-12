@@ -1,0 +1,24 @@
+{% extends "base2017-single.html" %}
+{% load scms2_tags %}
+{% block content %}
+    <article>
+      <header>
+	<h2>{{ page.title }}</h2>
+      </header>
+      <div class="maincontent">
+	<div>
+	  In dieser Sammlung befinden sich 
+	  {% if page.get_num_collections > 0 %}{{page.get_num_collections}} weitere Sammlungen sowie{%  endif %} insgesamt {{ page.get_num_albums }} Fotoalben mit zusammen {{ page.get_num_pics }}
+	  Bildern. 
+	</div>
+	<div class="fotoalbum-list">
+	  {% for child in page.get_children %}
+	  {{ child.specific.render_as_child }}
+	  {% endfor %}
+	</div>
+      </div>
+      <aside>
+	{% shariff page %}
+      </aside>
+    </article>
+{% endblock %}
