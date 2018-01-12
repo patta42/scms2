@@ -1,0 +1,76 @@
+{% extends "head2017.html" %}
+{% load static termin_tags %}
+{% block body %} 
+  <body class="start">
+    <div class="full" id="topwrapper">
+      <div class="fixed first" id="heading">
+	<div class="textwrapper">
+	  <form action="/search" id="suche"><input type="text" name="query"><input type="submit" value="Suchen"></form>
+	  <nav id="tools">
+	    <a href="#suche"><i title="Zur Suche" class="fa fa-search"></i></a>
+	    <a href="#"><i title="Suche schließen" class="fa fa-times-circle"></i></a>
+	    <a href="/kontakt"><i title="Kontakt" class="fa fa-envelope"></i></a>
+	    <a href="/impressum"><i title="Impressum" class="fa fa-info-circle"></i></a>
+	  </nav>
+	  <header><h1>{{page.get_site.root_page }}</h1></header>
+	</div>
+      </div>
+    </div>
+    <div class="full" id="headwrapper">
+      <header>
+	<div class="textwrapper">
+	  <h2>
+	    <span>St. Sebastianus</span>
+	    Schützenbruderschaft Oeventrop
+	  </h2>
+	  <nav id="selector"><ul>{% for site in sites %}<li{% if page.get_site == site %} class="current"{%endif%}><a href="{{ site.root_url }}">{{ site.site_name }}</a></li>{% endfor %}</ul>
+	  </nav>
+	  <nav id="mobile-selector">
+	    <form>
+	      <div class="select-wrapper">
+		<span class="fake-icon"><i class="fa fa-caret-down"></i></span><select name="verein" id="verein">
+		  {% for site in sites %}<option {% if page.get_site == site %} selected{%endif%} value="{{ site.site_name }}">{{ site.root_page }}</option>{% endfor %}
+		</select>
+	      </div>
+	      <input class="no-js" type="submit" value="Wechseln">
+	    </form>
+	  </nav>
+	</div>
+      </header>
+    </div>
+    <div id="asidewrapper" class="full">
+      	<div class="fixme second menu">
+	  <div class="textwrapper">
+	    <nav id="vereinsmenu">
+	      <ul>
+		{% include "scms2/vereinsmenu.html" %}
+	      </ul>
+	    </nav>
+	  </div>
+	</div>
+      <div class="textwrapper">
+      {% include "scms2/social_links.html" %}
+      {% next_event %}
+      </div>
+
+    </div>
+    <div class="fullwidth" id="mainwrapper">
+      <div class="textwrapper" >
+	<main>
+	  {% block content%}
+	  {% endblock %}
+	</main>
+      </div>
+    </div>
+    <footer>
+      {% include "scms2/footer.html" %}
+    </footer>
+    <nav>
+      <ul id="menu">
+	{% include "scms2/footer_vereinsmenu.html" %}
+      </ul>
+    </nav>    
+    {% include "scripts.html" %}
+
+  </body>
+{% endblock %}
