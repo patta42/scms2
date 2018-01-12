@@ -1,0 +1,129 @@
+/************************************************************
+  Image galleries
+ ************************************************************/
+
+.image-gallery .image-container{
+/*    float:left;*/
+    display:inline-block;
+    margin-right:5px;
+    margin-bottom:5px;
+    padding:3px;
+    border:thin solid black;
+    height:308px;
+    position:relative;
+}
+.image-gallery .image-container.w350{
+/*    margin-right:9px;
+    margin-left:9px;*/
+}
+
+.image-gallery .image-container .image-container-w200{
+    width:200px;
+    height:300px;
+    position:relative;
+    overflow:hidden;
+}
+.image-gallery .image-container .image-container-w300{
+    width:300px;
+    position:relative;	    
+    overflow:hidden;
+    height:300px;
+}
+.image-gallery .image-container .image-container-w350{
+    width:350px;
+    position:relative;
+    overflow:hidden;	    
+}
+.image-gallery .image-container .image-container-w200 img{
+    margin-left:-75px;
+}
+.image-gallery .image-container .image-container-w300 img{
+    margin-left:-25px;
+}
+.image-gallery .image-container .image-container-w350 img{
+    margin-left:0px;
+}
+html.thousand-px .image-gallery .image-container .image-container-w350 img,
+html.thousand-px .image-gallery .image-container .image-container-w300 img,
+html.thousand-px .image-gallery .image-container .image-container-w200 img,
+html.mobile .image-gallery .image-container .image-container-w350 img,
+html.mobile .image-gallery .image-container .image-container-w300 img,
+html.mobile .image-gallery .image-container .image-container-w200 img
+{
+    margin-left:0;
+
+}
+html.thousand-px .image-gallery .image-container .image-container-w200,
+html.thousand-px .image-gallery .image-container .image-container-w300,
+html.thousand-px .image-gallery .image-container .image-container-w350,
+html.mobile .image-gallery .image-container .image-container-w200,
+html.mobile .image-gallery .image-container .image-container-w300,
+html.mobile .image-gallery .image-container .image-container-w350{
+    width:100%;
+}
+
+html.desktop .target-fix
+{
+    display: block;
+    top: 0;
+    left: 0;
+    position: fixed;
+}
+
+html.mobile .target-fix,
+html.thousand-px .target-fix
+{
+    display: block;
+    top: 0;
+    left: 0;
+    position: relative;
+}
+
+.image-gallery section
+{
+    display: none;
+}
+.image-gallery .fotoalbum-nav
+{
+    display:block;
+    clear:both;
+    margin-bottom:1em;
+}
+.image-gallery .fotoalbum-nav a.button.back,
+.image-gallery .fotoalbum-nav a.button.fwd,
+.image-navigation a.button.back,
+.image-navigation a.button.fwd
+{
+    width:10em;
+}
+.image-navigation a.button.fwd,
+.image-gallery .fotoalbum-nav a.button.fwd 
+{
+    text-align:right;
+    float:right;
+}
+.image-navigation a.button.back,
+.image-gallery .fotoalbum-nav a.button.back 
+{
+    text-align:left;
+    float:left;
+}
+.image-navigation a.button:not([href]),
+.image-gallery .fotoalbum-nav a.button:not([href]){
+    background-color:#888;
+}
+.image-navigation a.button  i:first-child,
+.image-gallery .fotoalbum-nav a.button  i:first-child{
+  padding-right:.8em;
+}
+.image-navigation a.button  i:last-child,
+.image-gallery .fotoalbum-nav a.button i:last-child{
+  padding-left:.8em;
+}
+.image-gallery .inner-section-container{
+    margin:0 auto;
+}
+.image-gallery section{
+    text-align:center;
+}
+

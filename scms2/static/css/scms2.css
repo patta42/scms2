@@ -1,0 +1,101 @@
+
+
+
+.imagebox img{
+    border-radius:5px 5px 0px 0px;
+    border: 0px;
+    width:100%;
+    height:auto;
+    margin-bottom:0;
+}
+
+.imagebox a{
+    display:block;
+    text-align:right;
+    margin-right:.5em;
+}
+
+.imagebox p{
+    padding:.1em .5em;
+    margin-top:.25em;
+}
+
+p{margin-top:1em}
+#topnav ul{
+}
+
+#topnav ul li{
+    display:inline-block; 
+}
+
+#topnav ul li a{
+    color:#ccc;
+}
+
+table{
+    width:100%;
+}
+
+thead{
+    font-weight:bold;
+    font-size:100%;
+}
+th{
+    padding:.3em .1em;
+}
+td {
+    padding:.1em .1em;
+}
+
+#sidebar p{
+    margin-bottom:0em;
+    padding:0;
+}
+
+.image-and-citation:after{
+    clear:left;
+}
+
+.fotoalbum-karussell, .video-karussell{
+    margin:1em 60px;
+    position:relative;
+}
+
+.fotoalbum-karussell div img{
+    display:block;
+    margin:auto;
+    max-width:98%;
+    width:auto;
+    height:auto;
+}
+
+
+
+.fotoalbum figure, figure{
+    margin:0;
+    padding:0;
+}
+
+.einleitung + .fotoalbum{
+    margin-top:1em;
+}
+
+
+
+.fotoalbum-list .child dl{
+    margin-top:75px;
+}
+.child dl dt, .child dl dd{
+    display:inline-block;
+}
+
+
+@media (min-width: 60em) { 
+  /* Festlegungen */ 
+    .fotoalbum-list{
+	position:relative;
+	width:60em;
+    }
+}
+
+

@@ -1,0 +1,158 @@
+body,
+main article aside dl dd{
+    font-family:Roboto, sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6, nav, aside,
+main article aside dt,
+footer,
+#heading header h1
+{
+    font-family:'Open Sans', sans-serif;
+}
+
+#headwrapper h2,
+#topwrapper nav a,
+article h3,
+main article aside dt,
+aside h4{
+    text-transform:uppercase;
+    letter-spacing:.04em;
+}
+#headwrapper article h1,
+article h2,
+aside h4 span{
+    text-transform:none;
+    letter-spacing:0;
+}
+a{
+    text-decoration:underline;
+}
+#topwrapper nav a, 
+#topwrapper nav a:visited, 
+#topwrapper nav a:active,
+#selectorwrapper nav ul li a,
+#headwrapper nav ul li a,
+#vereinsmenu li a{
+    text-decoration:none;
+}
+
+main article aside dl dd,
+footer h2, footer h3,
+#heading header h1,
+body
+{
+    font-weight: 300;
+}
+#headwrapper article h1,
+article h2,
+blockquote,
+.img-label .headline,
+.maincontent dl dt,
+nav, th, strong,
+#terminewrapper,
+.imagebox h3{
+    font-weight: 400;
+}
+#headwrapper h2,
+article h3{
+    font-weight: 600;
+}
+
+.image-and-citation p
+{
+    font-style:italic;
+}
+
+body,
+#headwrapper h2 span,
+article h2 span,
+.fotoalbum-list .breadcrumb,
+aside h4 span,
+nav, #terminewrapper,
+#mobile-selector form select,
+label[for="verein"],
+.imagebox h3,
+aside *,
+.imglist .imglist-item .img-label .subline
+{
+    font-size:1rem;
+}
+body,
+aside h4{
+    font-size:1.2rem;
+}
+.image-and-citation p,
+blockquote
+{
+    font-size:1.3em
+}
+#tools a,
+#suche nav{
+    font-size:1.3rem;
+}
+footer h3
+{
+    font-size:1.4rem;
+}
+
+
+footer h2{
+    font-size:1.8rem;
+}
+
+#headwrapper h2{
+    font-size:1.5rem;
+}
+#headwrapper article h1,
+article h2,
+.socialmedia{
+    font-size:2rem;
+}
+article h3{
+    font-size:1.25rem;
+}
+#heading header h1{
+    font-size:1.5rem;
+}
+@media (min-width: 60em){
+    #headwrapper h2,
+    #headwrapper article h1,
+    article h2,
+    .socialmedia{
+	font-size:3rem;
+    }
+    article h3{
+	font-size:1.5rem;
+    }
+}
+#headwrapper h2,
+#headwrapper article h1,
+article h2,
+article h3,
+.image-and-citation p,
+blockquote,
+footer h2,
+footer h3,
+#heading header h1{
+    line-height:1.1em;
+}
+body,
+.imglist .imglist-item .img-label .subline{
+    line-height:1.25em;
+}
+#headwrapper h2 span,
+article h2 span
+{
+    line-height:1.5em;
+}
+#menulink{
+    font-size:1.5em!important;
+}
+#mobile-selector form select,
+label[for="verein"]
+{
+    line-height:1;
+}
+
+b{ font-weight:400;}

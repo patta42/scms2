@@ -1,0 +1,80 @@
+.ph-collection-chooser li.collection-item{
+    display: none;
+    
+}
+.ph-collection-chooser li.collection-item{
+    position:absolute;
+    z-index:100;
+    width:calc(100% - 2rem);
+    left:0;
+    background:#fff;
+    border:thin solid #e7e7e7;
+    height:2rem;
+    line-height:1.1rem;
+    text-align:left;
+}
+.ph-collection-chooser li.collection-item span{
+    padding:.5rem 1rem;
+    position:relative;
+    top:.5rem;
+}
+
+.ph-collection-chooser .chosen{
+    display: block;
+}
+
+.ph-collection-chooser{
+    border:thin solid rgb(169, 169, 169);
+    height:3rem;
+    position:relative;
+}
+.ph-collection-chooser li.select{
+    padding:1rem;
+    font-size:1rem;
+    position:relative;
+    text-align:left;
+}
+.ph-collection-chooser li.collection-item span.selectable-collection {
+    font-weight:bold;
+}
+.ph-collection-chooser li.collection-item:hover{
+    background-color:#43b1b0;
+    color:white;
+}
+.ph-collection-chooser li.collection-item span.children-indicator,
+.ph-collection-chooser li.collection-item span.close-indicator{
+    font-weight:bold;
+    border-top: 1px solid #fff;
+    margin-top:-.5rem;
+    display:block;
+    line-height:1.1rem;
+    float:left;
+}
+.ph-collection-chooser li.collection-item span.children-indicator{
+    background:#e7e7e7;
+}
+.ph-collection-chooser li.collection-item span.close-indicator{
+    color:#7b1e22;
+    background:#fff;
+}
+.ph-collection-chooser li.collection-item span.children-indicator i,
+.ph-collection-chooser li.collection-item span.close-indicator i{
+    font-style:normal;
+}
+.ph-collection-chooser li.select span + span:before{
+    content:'\f105';
+    font-family: FontAwesome;
+    padding:0 .25rem;
+}
+.ph-collection-chooser li.select span.selected{
+    font-weight:bold;
+}
+.ph-collection-chooser li.collection-item span.collection {
+    display:block;
+    width:100%;
+    margin-left:2.5rem;
+    margin-top:-.5rem;
+}
+.ph-collection-chooser li.collection-item span.children-indicator + span.collection{
+    width:calc(100% - 4rem);
+}

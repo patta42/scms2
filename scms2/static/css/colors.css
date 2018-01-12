@@ -1,0 +1,152 @@
+body, a,
+#selectorwrapper nav ul li a,
+#selectorwrapper nav ul li a:visited,
+article h2 span,
+thead,
+.fotoalbum-list .breadcrumb,
+.imagebox h3
+{
+    color:#111;
+}
+main article aside{
+    color:#333;
+}
+#headwrapper h2{
+    color:#e7e7e7;
+}
+#headwrapper article h1,
+#headwrapper article h1,
+article h2,
+article h3{
+    color:#496a36;
+}
+#topwrapper,
+#topwrapper nav a,
+#terminewrapper dl,
+#terminewrapper h4,
+#headwrapper nav ul li a,
+#vereinsmenu li a,
+#vereinsmenuwrapper nav ul li,
+#selectorwrapper nav ul li.current a,
+#vereinsmenuwrapper nav ul li a,
+.image-and-citation,
+footer, footer a,
+footer + nav ul,
+footer + nav ul a,
+#mobile-selector form .select-wrapper,
+#mobile-selector form select
+{
+    color:#ffffe9;
+}
+
+.socialmedia .facebook{
+    color:#3b5998;
+}
+.socialmedia .youtube{
+    color:#f00;
+}
+
+
+/* Backgrounds */
+
+body
+{
+    background-color:#eed;
+    background-image:url('../imgs/overlay.png');
+}
+
+#topwrapper, #asidewrapperbottom{
+    background-color: #322f28;
+}
+
+#vereinsmenuwrapper, 
+#selectorwrapper nav ul li.current a,
+#vereinsmenuwrapper nav ul li ul,
+#vereinsmenu ul,
+#headwrapper nav ul li.current a,
+footer + nav ul,
+#mobile-selector form .select-wrapper,
+#mobile-selector form select option
+{
+    background-color: #496a36;
+}
+#asidewrapper, #terminewrapper,
+.fixed.menu,
+.image-and-citation,
+#vereinsmenu ul li ul li:hover,
+footer + nav,
+article form input[type="submit"],
+.image-and-citation
+{
+    background-color: #3d582e;
+}
+#vereinsmenu ul li ul li:hover{
+    background: #3d582e;
+}
+.start #headwrapper,
+.socialmedia a
+{
+    background-color: #e7e7e7;
+}
+
+#selector ul li a:hover,
+aside,
+article form,
+.toc
+{
+    background:rgba(89, 130, 68, 0.5);
+}
+
+#headwrapper nav ul,
+#mobile-selector{
+    background-color:rgba(0,0,0,.5);
+}
+
+.start #headwrapper{
+    background-image:url('../imgs/header-bg5.jpg');
+    background-position:center top;
+    background-size:cover;
+    background-attachment:fixed;
+    background-repeat: no-repeat;
+    min-height:300px;
+    padding-bottom:0em;
+}
+#selectorwrapper{
+    background-color: #ffffe9;
+}
+
+#headwrapper article h1,
+#mobile-selector form select
+{
+    background:transparent;
+}
+
+footer{
+    background:linear-gradient(#322f28,#1c1b17);
+}
+
+#vereinsmenu ul li:hover{
+    background:linear-gradient(#3d582e, #496a36 80%, rgba(73,106,54,0));
+}
+
+thead {
+    background-color:rgba(61,88,46,.40);
+}
+tbody tr:nth-of-type(even){
+    background-color:rgba(61,88,46,.10);
+}
+main{
+    background-image: url(../imgs/ornament6.png);/*https://i.pinimg.com/originals/c8/71/ca/c871cadb8888d46cf5049fc83bf02b98.png);*/
+    background-position: 50% 1.50rem;
+    background-repeat:no-repeat;
+}
+/* Shadows */
+
+#headwrapper h2{
+    text-shadow:2px 2px 2px #111, 2px -2px 2px #111, -2px 2px 2px #111, -2px -2px 2px #111;
+}
+#headwrapper article h1{
+    text-shadow:none;
+}
+
+

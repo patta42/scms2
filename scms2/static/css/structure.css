@@ -1,0 +1,548 @@
+/* mobile */
+.extended-navigation{
+    display:none;
+}
+.mobile-navigation, .first.home{
+    display:inline-block;
+    margin:.5em;
+}
+
+.textwrapper{
+    padding:1rem;
+}
+
+#heading header h1 {
+    margin-top:1rem;
+}
+.shariff .orientation-vertical li, .shariff li a {
+    display:inline-block;
+    width:auto;
+    margin-right:.25rem;
+}
+.shariff .share_text{
+    display:none;
+}
+
+#vereinsmenu ul{
+    margin-top:-1rem;
+    padding-left:1rem;
+}
+footer h3{
+    margin:.5em 0em 1em 0em;
+}
+.tomenu{
+    float:right;
+    margin-right:1.25em;
+}
+footer + nav{
+    min-height:100vh;
+}
+footer + nav ul li.first.home{
+    margin-left: 1rem;
+}
+footer + nav ul.extended{
+    margin:1rem;
+    margin-bottom:0;
+    padding:1rem;
+    font-size:1.2rem;
+}
+footer + nav ul.extended li{
+    margin-top:1rem;
+}
+footer + nav ul.extended ul{
+    display:block;
+    padding-left:2rem;
+}
+footer + nav ul.extended ul li{
+    display: inline;
+    font-size:1rem;
+}
+
+aside{
+    padding:1rem;
+}
+#selector{
+    display:none;
+}
+.fl, .fr{
+    display:block;
+    margin:1rem auto;
+}
+.maincontent iframe{
+    max-width:100%;
+}
+.image-and-citation {
+    position: relative;
+    width: calc(100% + 4rem);
+    margin-left: -2rem;
+    padding: 2rem;
+    padding-bottom: .5rem;
+    margin-bottom: .5em;
+    border-radius: 5px 0 15px 5px;
+}
+.image-and-citation img{
+    width:100%;
+}
+
+
+@media (min-width: 60em){
+    .image-and-citation{
+	width:100%;
+	height:200px;
+	padding:0;
+	margin-top:.5em;
+	margin-left:0;
+    }
+    .image-and-citation p{
+	font-size:1.5rem;
+	font-style:italic;
+	padding-top:2em;
+    }
+    .image-and-citation img{
+	float:left;
+	margin-right:1em;
+	border-radius:5px;
+	width:auto;
+    }
+    .imagebox.fl{
+	margin:.5em 2em .5em 0;
+    }
+    .imagebox.fr{
+	margin:.5em 0 .5em 2em;
+    }
+    .shariff .orientation-vertical li, .shariff li a {
+	display:block;
+	width:100%;
+	margin-right:0;
+    }
+    .shariff .share_text{
+	display:inline;
+    }
+
+    #heading header h1 {
+	margin-top:0rem;
+    }
+
+    .textwrapper{
+	max-width:60rem;
+	margin: auto;
+	padding:0;
+	position:relative;
+    }
+    .fixme{
+	position:relative;
+    }
+    .fixed{
+	position:fixed;
+	background-color:inherit;
+	width:100%;
+	z-index:100;
+    }
+    
+    .fixed *{
+	z-index:100;
+    }
+    .fixed.first{
+	top:0;
+    }
+    .fixed.second{
+	top:3.6rem;
+    }
+    
+
+/*    .bar{
+	height:.4em;
+	width:100%;
+    }
+*/
+
+    .fixed.menu{
+	padding-bottom:1.5em;
+    }
+
+    :target:before {
+	content:"";
+	display:block;
+	height:10.1rem; /* fixed header height*/
+	margin:-10.1rem 0 0; /* negative fixed header height */
+    }
+    #selectorwrapper{
+	text-align:center;
+    }
+    
+    /* Navigation */
+    
+    .single header h1{
+	padding:0;
+	margin:0;
+	margin-left:.25rem;
+	text-align:left;
+    }
+
+
+    main p{
+	max-width: 40rem;
+    }
+
+    #topwrapper .first{
+	height:3.6rem;
+    }
+    #topwrapper nav ul{
+	float:right;
+    }
+    
+
+    #vereinsmenu ul
+    {
+	margin:0;
+	padding:0 15px;
+    }
+    #headwrapper nav ul{
+	margin:0;
+	padding: 15px 15px 0;
+	border-top-left-radius:15px;
+	border-top-right-radius:15px;
+    }
+    #selector nav ul li{
+	margin:0;
+    }
+    #vereinsmenu ul li{
+	margin-right:.0em;
+    }
+    #headwrapper nav ul li
+    {
+	text-align:center;
+	padding:0;
+    }
+    
+    #selector ul li {
+	width:20%;
+    }
+    #vereinsmenu ul li{
+	width:auto;
+    }
+    
+    #vereinsmenu ul li.home{
+    /*    width:10%;*/
+    }
+    #headwrapper nav ul li a,
+    #vereinsmenu ul li a{
+	width:100%;
+	display:inline-block;
+	padding-bottom:1em;
+	padding-top:1em;
+	padding:1em;
+    }
+    #headwrapper nav ul li.home a{
+	padding:1em;
+    }
+    #headwrapper nav ul li ul li a{
+	display:block;
+	width:100%;
+    }
+    #vereinsmenu ul{
+	position:relative;
+	height:3.5rem;
+	z-index:10;
+    }
+
+    
+    #vereinsmenu ul li:hover ul{
+	position:absolute;
+	left:0;
+	/*    top:-2px;*/
+	padding:0em;
+	padding-bottom:1rem;
+	margin-top:-2px;
+	border:2px solid #111;
+	border-top-color:transparent;
+	height:auto;
+    }
+    
+    /*#vereinsmenu ul li:last-of-type:hover ul{
+      left:auto;
+      right:0;
+      }*/
+    #vereinsmenu ul, #vereinsmenu ul li{
+	margin:0
+    }
+    #vereinsmenu ul li ul li{
+	padding: 0;
+	display:block;
+	width:100%;
+	margin:0;
+	text-align:left;
+	white-space: nowrap;
+    }
+    
+    #vereinsmenu ul li ul li a{
+	padding: .5em 2em;
+    }
+    #vereinsmenu ul li:hover ul,
+    #vereinsmenu ul li:hover ul li{
+	display:block;
+    }
+    #vereinsmenu ul li:hover ul{
+	width:auto;
+    }
+    #topwrapper .textwrapper{
+	padding: 1rem 0;
+    }
+    
+    #topwrapper nav li{
+	margin-left: 1em;
+    }
+    .second.menu {
+	margin-bottom:1em;
+    }
+    
+    #terminewrapper{
+	padding:1em;
+    }
+    #asidewrapperbottom{
+	height:100%;
+    }
+    
+    main article .maincontent{
+	float:left;
+	max-width:40rem;
+	min-width:40rem;
+	margin-right:2em;
+    }
+
+    main article{
+	/*    float:left; */
+	position:relative;
+	clear:both;
+    /*    padding-top:7.5rem;*/
+    }
+    main article:after{
+	content:".";
+	visibility:none;
+	height:0px;
+	clear:both;
+    }
+    main article + article{
+	margin-top:1em;
+	border-top: thin solid black;
+	padding-top:1em;
+    }
+    
+    main article aside{
+	float:left;
+	max-width:16rem;
+	width:16rem;
+    }
+    
+    body.single{
+	padding-top:5em;
+    }
+    
+    .image-and-citation:after{
+	clear:left;
+    }
+    
+    .einleitung{
+	font-weight:400;
+    }
+    
+
+    article header nav{
+	margin-top:6.5rem;
+	font-size:1rem;
+    }
+    
+    
+    aside .shariff{
+	max-width:12.5rem;
+	margin: 0 0 0 auto;
+    }
+
+    
+    footer .footer-wrapper{
+	display:block;
+	margin:.25em auto;
+	width:100%;
+	max-width:60rem;
+	position:relative;
+	box-sizing:content-box;
+    }
+    .footer-wrapper dl{
+	margin:0;
+    }
+    .footer-wrapper .inner-wrapper{
+	display:table;
+	width:100%;
+    }
+    .footer-wrapper .col50{
+	width:50%;
+	display:table-cell;
+    }
+    .col50.last:after{
+	content:" ";
+	display:block;
+	height:0.0000000001em;
+	clear:both;
+    }
+
+    #mainwrapper:after{
+	display:block;
+	clear:both;
+	content:".";
+	visibility:"hidden";
+	height:0px;
+    }
+    
+    
+    aside h4 span{
+	display:block; 
+    }
+    
+    nav.breadcrumb{
+	margin-top:6rem;
+    }
+    .fotoalbum-list .breadcrumb{
+	display:block;
+    }
+    
+    
+    #selectorwrapper nav ul{
+	margin:auto;
+    }
+    
+    
+    #selectorwrapper nav ul li a,
+    #selectorwrapper nav ul li a:visited
+    {
+	display:block;
+	padding:2em 2em;
+    }
+    
+    
+    
+    
+    #headwrapper nav ul li.current a{
+	border:thin solid #111;
+	border-bottom-width:0;
+	border-top-left-radius:15px;
+	border-top-right-radius:15px;
+    }
+    #vereinsmenu ul li.first a{
+	border-bottom-left-radius: 15px;
+    }
+    #vereinsmenu ul li.first:hover a{
+	border-bottom-left-radius: 0px;
+    }
+    #vereinsmenu ul li.last a{
+	border-bottom-right-radius: 15px;
+    }
+    #vereinsmenu ul li.last:hover a{
+	border-bottom-right-radius: 0px;
+    }
+    
+   
+    main article aside dl dd{
+	margin-left:1em;
+	margin-bottom:1em;
+    }
+
+    .fixed.menu{
+	padding-bottom:1.5em;
+    }
+    
+    .image-and-citation{
+	border-radius:5px 0 15px 5px;
+    }
+    
+    .image-and-citation p{
+	padding-top:2em;
+    }
+    .image-and-citation img{
+	margin-right:1em;
+	border-radius:5px;
+    }
+    footer dl dd img{
+	border:thin solid #000;
+	border-radius:5px;
+    }
+    .fl{
+	float:left;
+    }
+    .fr{
+	float:right;
+    }
+    .imagebox.sm{
+	width:33%;
+	margin-bottom:.3em;
+    }
+    .imagebox.w300{
+	width:302px;
+    }
+    .imagebox.w200{
+	width:202px;
+    }
+    .imagebox.mid{
+	width:50%;
+	margin-bottom:.3em;
+    }
+}
+@media (min-width: 60em) and (hover: hover){
+    #selector{
+	display:block;
+    }
+
+    #menulink, #mobile-selector{
+	display:none !important;
+    }
+    .mobile-navigation{
+	display:none;
+    }
+    footer + nav{
+	display:none;
+    }
+    #topwrapper nav ul li,
+    #selectorwrapper nav ul li,
+    #headwrapper nav ul li,
+    #vereinsmenu ul li.extended-navigation
+    {
+	display:inline-block;
+    }
+    #vereinsmenu ul li{
+	float:left;
+	position:relative;
+    }
+    #vereinsmenu ul li ul{
+	display:none;
+    }
+
+}
+
+@media (min-width: 60em){
+    .ff #selector{
+	display:block;
+    }
+
+    .ff #menulink, .ff #mobile-selector{
+	display:none !important;
+    }
+    .ff .mobile-navigation{
+	display:none;
+    }
+    .ff footer + nav{
+	display:none;
+    }
+    .ff #topwrapper nav ul li,
+    .ff #selectorwrapper nav ul li,
+    .ff #headwrapper nav ul li,
+    .ff #vereinsmenu ul li.extended-navigation
+    {
+	display:inline-block;
+    }
+    .ff #vereinsmenu ul li{
+	float:left;
+	position:relative;
+    }
+    .ff #vereinsmenu ul li ul{
+	display:none;
+    }
+}
