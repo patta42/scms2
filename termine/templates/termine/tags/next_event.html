@@ -1,0 +1,13 @@
+<aside id="terminewrapper">
+  <h4>Nächster Termin</h4>
+  {% if next %}
+  <dl>
+    <dt>{{next.datum}}{% if next.uhrzeit %} {{ next.uhrzeit }} Uhr{% endif %}{% if next.enddatum %} – {{next.enddatum}}{%endif%}</dt>
+    <dd>{{next.title}}</dd>
+  </dl>
+  {% else %}
+  <dl>
+    <dd>Keine aktueller Termin vorhanden</dd>
+  </dl>
+  {% endif %}
+</aside>

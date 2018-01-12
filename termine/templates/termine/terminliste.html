@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% load wagtailcore_tags %}
+
+{% block body_class %}template-terminliste{% endblock %}
+
+{% block content %}
+    <article>
+      <h1>{{ page.title }}</h1>
+      {% if page.einleitung|length > 0 %}
+        <p> 
+	  {{ page.einleitung }} 
+	</p>
+      {% endif %}
+      {% if termine|length > 0 %}
+	<dl>
+	{% for termin in termine %}
+	<dt> {{ termin.specific.datum }}: {{ termin.specific.title }}</dt>
+	  {% if termin.specific.beschreibung|length > 0 %}
+	<dd>{{termin.specific.beschreibung}}</dd>
+	  {% endif %}
+        {% endfor %}
+	</dl>
+      {% else %}
+	<p>Keine anstehenden Termin vorhanden.
+      {% endif %}
+    </article>
+{% endblock %}

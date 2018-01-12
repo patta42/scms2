@@ -1,0 +1,38 @@
+{% extends "base2017-single.html" %}
+
+{% load wagtailcore_tags scms2_tags %}
+
+{% block body_class %}template-terminliste{% endblock %}
+
+{% block content %}
+    <article>
+      <header>
+      <h2>{{ page.title }}</h2>
+      </header>
+      <div class="maincontent">
+      {% if page.einleitung|length > 0 %}
+        <p> 
+	  {{ page.einleitung }} 
+	</p>
+      {% endif %}
+      {% if termine|length > 0 %}
+	<dl>
+	{% for termin in termine %}
+	<dt>
+	  {{ termin.specific.datum }}{% if termin.specific.uhrzeit %},
+	    {{ termin.specific.uhrzeit }} Uhr{% endif %}{% if termin.specific.enddatum %} – {{termin.specific.enddatum}}{%endif%}:
+	  {{ termin.specific.title }}</dt>
+	  {% if termin.specific.beschreibung|length > 0 %}
+	<dd>{{termin.specific.beschreibung}}</dd>
+	  {% endif %}
+        {% endfor %}
+	</dl>
+      {% else %}
+	<p>Keine anstehenden Termin vorhanden.</p>
+      {% endif %}
+      </div>
+      <aside>
+	{% shariff page %}
+      </aside>
+    </article>
+{% endblock %}
