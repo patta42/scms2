@@ -99,3 +99,7 @@ ENV/
 
 # mypy
 .mypy_cache/
+
+# production settings file for wagtail
+
+scms2/settings/production.py
