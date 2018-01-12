@@ -1,0 +1,12 @@
+# SECURITY WARNING: keep the secret key used in production secret!
+SECRET_KEY = 'py009wkdx4&w5wvk8bmkd8+9#eb@&y&2q^6nuuetvycpm)1dka'
+
+# Database
+# https://docs.djangoproject.com/en/1.10/ref/settings/#databases
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'scms2dev',
+    }
+}
