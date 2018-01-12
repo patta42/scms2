@@ -1,0 +1,58 @@
+{% extends "head2017.html" %}
+{% load static scms2_tags wagtailcore_tags %}
+{% block body %} 
+<body class="single">
+    <div class="full" id="topwrapper">
+      <div class="fixed first" id="heading">
+	<div class="textwrapper">
+	  <form action="/search" id="suche"><input type="text" name="query"><input type="submit" value="Suchen"></form>
+	  <nav id="tools">
+	    <a href="#suche"><i title="Zur Suche" class="fa fa-search"></i></a>
+	    <a href="#"><i title="Suche schließen" class="fa fa-times-circle"></i></a>
+	    <a href="/kontakt"><i title="Kontakt" class="fa fa-envelope"></i></a>
+	    <a href="/impressum"><i title="Impressum" class="fa fa-info-circle"></i></a>
+	  </nav>
+	  <header><h1>{{page.get_site.root_page }}</h1></header>
+	</div>
+      </div>
+    </div>
+    <header>
+      <div class="fixed second menu">
+	<div class="textwrapper">
+	  <nav id="vereinsmenu">
+	    <ul>
+	      {% include "scms2/vereinsmenu.html" %}
+	    </ul>
+	  </nav>
+	</div>
+      </div>
+    </header>
+    <div class="fullwidth" id="mainwrapper">
+      <div class="textwrapper">
+	<nav class="breadcrumb">
+	  {% for parent in page.get_ancestors %}
+	  {% if forloop.counter > 2 %}
+	  {% if forloop.counter > 3 %} » {% endif %}
+	  <a href="{%pageurl parent %}">{{parent}}</a>
+	  {% endif %}
+	  {% endfor %}
+	</nav>
+	<main>
+	  {% block content%}
+	  {% endblock %}
+	</main>
+      </div>
+    </div>
+    <footer>
+      {% include "scms2/footer.html" %}
+    </footer>
+    <nav>
+      <ul id="menu">
+	{% include "scms2/footer_vereinsmenu.html" %}
+      </ul>
+    </nav>    
+    {% include "scripts.html" %}
+    {% block extra_js %}
+    {% endblock %}
+  </body>
+{% endblock %}

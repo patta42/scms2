@@ -1,0 +1,20 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <title>{{page.title}} - {{page.get_site.site_name}}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static "css/shariff.complete.css" %}"></link>
+    <link rel="stylesheet" href="{% static "css/structure.css" %}"></link>
+    <link rel="stylesheet" href="{% static "css/colors.css" %}"></link>
+    <link rel="stylesheet" href="{% static "css/elements.css" %}"></link>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600|Roboto:300,400&amp;subset=latin-ext">
+    <link rel="stylesheet" href="{% static "css/fonts.css" %}"></link>
+    <link rel="stylesheet" type="text/css" href="{% static "js/slick-1.8.0/slick/slick.css" %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static "js/slick-1.8.0/slick/slick-scms2.css" %}"/>
+    <link rel="stylesheet" href="{% static "css/scms2.css" %}"></link>
+    {% block extra_css %}
+    {% endblock %}
+  </head>
+{% block body %}{% endblock %}
+</html>

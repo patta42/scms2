@@ -1,0 +1,24 @@
+{% load wagtailcore_tags static %}
+<script src="{% static "scripts/fixmenu.js" %}"></script>
+<script src="{% static "js/jquery-3.2.1.min.js" %}"></script>
+<script src="{% static "scripts/shariff.min.js" %}"></script>
+<script src="{% static "js/slick-1.8.0/slick/slick.min.js" %}"></script>
+<script src="{% static "js/init-slick.js" %}"></script>
+<script>
+  $(document).ready(
+    function(){
+      $('html').addClass('js');
+      if(navigator.userAgent.toLowerCase().indexOf('firefox') > -1){
+        $('html').addClass('ff');
+      }
+      $('#verein').on('change', function(){
+        switch ( $('#verein').val() ){
+          {% for site in sites %}
+          case "{{ site.site_name }}": self.location.href = "{% pageurl site.root_page %}"; break;
+          {% endfor %}
+        }
+      });
+    }
+  );
+  
+</script>
