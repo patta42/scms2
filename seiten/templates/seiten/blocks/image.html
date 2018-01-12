@@ -1,0 +1,39 @@
+{% load wagtailimages_tags %}
+{% if value.align == 'LINKS' %}
+<div class="imagebox fl w300">
+  {% image value.img width-300 %}{% if value.beschriftung %}<p>
+    {{ value.beschriftung }}
+  </p>{% endif %}
+</div>
+{% endif %}
+{% if value.align == 'LINKS_SM' %}
+<div class="imagebox fl w200">
+  {% image value.img width-200 %}{% if value.beschriftung %}<p>
+    {{ value.beschriftung }}
+  </p>{% endif %}
+</div>
+{% endif %}
+{% if value.align == 'RECHTS' %}
+<div class="imagebox fr w300">
+  {% image value.img width-300 %}
+{% if value.beschriftung %}<p>
+    {{ value.beschriftung }}
+  </p>{% endif %}
+</div>
+{% endif %}
+{% if value.align == 'RECHTS_SM' %}
+<div class="imagebox fr w200">
+  {% image value.img width-200 %}
+{% if value.beschriftung %}<p>
+    {{ value.beschriftung }}
+  </p>{% endif %}
+</div>
+{% endif %}
+{% if value.align == 'FULL' %}
+<div class="imagebox full">
+  {% image value.img fill-800x450 style="margin: 0 auto ; display:block; " width="100%" height="" %}
+  {% if value.beschriftung %}<p>
+    {{ value.beschriftung }}
+  </p>{% endif %}
+</div>
+{% endif %}

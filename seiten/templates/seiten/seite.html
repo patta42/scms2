@@ -1,0 +1,57 @@
+{% extends "base2017-single.html" %}
+
+{% load wagtailcore_tags scms2_tags scms2blocks_tags static %}
+
+{% block body_class %}template-article{% endblock %}
+{% block extra_css %}
+  <link rel="stylesheet" type="text/css" href="{% static 'css/photoswipe.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'js/default-skin/default-skin.css' %}">
+{% endblock %}
+{% block extra_js %}
+  <script src="{% static 'js/photoswipe.min.js' %}"></script>
+  <script src="{% static 'js/photoswipe-ui-default.min.js' %}"></script>
+  <script src="{% static 'js/init-photoswipe.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+    <article>
+      <header>
+      <h2>{{ page.title }}</h2>
+      </header>
+      <div class="maincontent">
+	{% for block in page.body %}
+          {% if block.block_type == 'sitemap' %}
+            {% sitemap page %}
+	  {% elif block.block_type == 'heading' and has_toc %}
+	     
+	<h3 class="intoc"><a name="{{block.value|slugify}}">{{block.value}}</a><a href="#toc" class="toclink">Zum Inhaltsverzeichnis</a></h3>
+	  {% elif block.block_type == 'toc' %}
+	     <a name="toc"></a>
+	     <ul class="toc">
+	     {% for heading in headings %}
+	       <li><a href="#{{heading|slugify}}">{{heading}}</a></li>
+	     {% endfor %}
+	     </ul>
+          {% else %}
+            {% include_block block %}
+          {% endif %}
+    {% endfor %}
+
+      </div>
+      <aside>
+	{% shariff page %}
+	<div class="related">
+	<h4>{{page.get_parent}}</h4>
+	<p>Weitere Seiten in dieser Rubrik:</p> 
+	<ul>
+	{% for seite in page.get_parent.get_children %}
+	{% if seite.slug != page.slug %}
+	<li><a href="{% pageurl seite %}">{% if seite.specific.kurztitel %}{{seite.specific.kurztitel}}{% else %}{{seite}}{%endif%}</a></li>
+	{% endif %}
+	{% endfor %}
+	</ul>
+	</div>
+      </aside>
+    </article>
+
+{% endblock %}
