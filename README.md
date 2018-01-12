@@ -1,6 +1,16 @@
 # scms2
 Die Webseite der Schützenbruderschaft Oeventrop.
 
+# Abhängigkeiten
+
+- [wagtail](https://wagtail.io)
+- [django](https://djangoproject.com) (durch wagtail)
+- [wagtailfontawesome](https://github.com/alexgleason/wagtailfontawesome)
+
+für postgres-Unterstützung
+
+- [psycopg2](http://initd.org/psycopg/docs/)
+
 # Installation
 
 Nach dem Klonen des Repositories die Abhängigkeiten installieren:
