@@ -242,7 +242,7 @@ class FotoalbumIndexPage( RoutablePageMixin, Page ):
     def get_last_child( self ):
         return self.get_children().order_by('path').reverse()[0]
     def get_first_child( self ):
-        return self.get_children().order_by('path').reverse()[0]
+        return self.get_children().order_by('path')[0]
     def get_children( self ):
         children = super(FotoalbumIndexPage, self).get_children()
         if self.sort:
