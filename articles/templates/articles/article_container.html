@@ -1,0 +1,23 @@
+{% extends "base2017-single.html" %}
+
+{% load wagtailcore_tags scms2_tags static %}
+
+{% block body_class %}template-articles_index{% endblock %}
+
+{% block content %}
+  <article>
+    <header>
+      <h2>Liste der Artikel und Berichte in {{page}}</h2>
+    </header>
+      <div class="maincontent">
+	<ul>
+        {% for article in self.get_children %}
+	  <li><a href="{% pageurl article %}">{{ article }}</a></li>
+        {% endfor %}
+        </ul>
+      </div>
+      <aside>
+	{% shariff self %}
+      </aside>
+  </article>
+{% endblock %}

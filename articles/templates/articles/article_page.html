@@ -1,0 +1,35 @@
+{% extends "base2017-single.html" %}
+
+{% load wagtailcore_tags scms2_tags static %}
+{% block extra_css %}
+  <link rel="stylesheet" type="text/css" href="{% static 'css/photoswipe.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'js/default-skin/default-skin.css' %}">
+{% endblock %}
+{% block extra_js %}
+  <script src="{% static 'js/photoswipe.min.js' %}"></script>
+  <script src="{% static 'js/photoswipe-ui-default.min.js' %}"></script>
+  <script src="{% static 'js/init-photoswipe.js' %}"></script>
+{% endblock %}
+
+{% block body_class %}template-article{% endblock %}
+
+{% block content %}
+    <article>
+      <header>
+      <h2>{{ page.title }}</h2>
+      </header>
+      <div class="maincontent">
+ 	{% if page.anriss %}
+	  <div class="einleitung">{{ page.anriss }}</div>
+	{% endif %}
+	{{ page.body }}
+      </div>
+      <aside>
+	<dl>
+	  <dt>Verfasst am:</dt>
+	  <dd>{{ page.get_article_date|date:"d. F Y" }}</dd>
+	</dl>
+	{% shariff page %}
+      </aside>
+    </article>
+{% endblock %}

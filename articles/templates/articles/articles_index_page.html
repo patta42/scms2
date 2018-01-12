@@ -1,0 +1,27 @@
+{% extends "base2017-single.html" %}
+
+{% load wagtailcore_tags static %}
+
+{% block body_class %}template-articles_index{% endblock %}
+{% block extra_css %}
+  <link rel="stylesheet" type="text/css" href="{% static 'css/photoswipe.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'js/default-skin/default-skin.css' %}">
+{% endblock %}
+{% block extra_js %}
+  <script src="{% static 'js/photoswipe.min.js' %}"></script>
+  <script src="{% static 'js/photoswipe-ui-default.min.js' %}"></script>
+  <script src="{% static 'js/init-photoswipe.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+  <article>
+    <header>
+      <h2>Liste der Berichte</h2>
+    </header>
+      <div class="maincontent">
+	<ul>
+        {% for year in self.get_children %}
+	  <li><a href="{% pageurl year %}">{{ year.title }}</a></li>
+        {% endfor %}
+        </ul>
+{% endblock %}
