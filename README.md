@@ -16,7 +16,7 @@ Die Datei
 `scms2/settings/locale.py`
 
 erstellen und mit Zugangsdaten für postgres füttern. Für lokalen Zugriff auf
-eine Datenbank scms2dev sieht das so aus:
+eine Datenbank `scms2dev` sieht das so aus:
 
 ```
 DATABASES = {
@@ -26,6 +26,9 @@ DATABASES = {
     }
 }
 ```
+
+Außerdem in diese Datei noch einen `SECRET_KEY` einfügen. Man kann auch die
+Beispiel-Datei `scms2/settings/local.py.example` einfach umbenennen.
 
 Dann die Datenstruktur migrieren:
 
