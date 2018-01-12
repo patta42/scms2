@@ -104,3 +104,7 @@ ENV/
 
 scms2/settings/production.py
 scms2/settings/local.py
+
+# Emacs files
+\#*\#
+*~
