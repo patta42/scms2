@@ -1,0 +1,33 @@
+{% extends "base2017.html" %}
+{% load scms2_tags wagtailcore_tags%}
+
+
+{% block body_class %}template-homepage{% endblock %}
+
+{% block content %}
+  {% for article in articles %}
+    <article>
+      <header>
+	<h2>{{ article.specific.title}}</h2>
+      </header>
+      <div class="maincontent">
+      {% if article.specific.anriss %}
+      {{article.specific.anriss}}
+      <p class="weiterlesen-knopf">
+	<a href="{% pageurl article %}">Weiterlesen</a> 
+      </p>
+      {% else %}
+      {{ article.specific.body }}
+      {% endif %}
+      </div>
+      <aside>
+	<dl>
+	  <dt>Verfasst am:</dt>
+	  <dd>{{ article.specific.get_article_date|date:"d. F Y" }}</dd>
+	</dl>
+	{% shariff article %}
+      </aside>
+    </article>
+  {% endfor %}
+
+{% endblock %}
