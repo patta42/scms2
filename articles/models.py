@@ -158,4 +158,4 @@ class ArticleContainer( Page ):
 
     
 class ArticleIndexByYearPage( Page ):
-    is_creatable = False 
+    is_creatable = False
