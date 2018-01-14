@@ -13,6 +13,7 @@ ALLOWED_HOSTS = [
     'oeventrop.localhost',
     'ssg.localhost',
     'bruderschaft.localhost',
+    'tbs.localhost',
     'localhost',
 ]
 
