@@ -2,6 +2,10 @@ from __future__ import absolute_import, unicode_literals
 
 from articles.models import ArticlePage
 
+from datetime import datetime
+from dateutil.relativedelta import relativedelta
+from dateutil.rrule import rrule, YEARLY, SU
+
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.db import models
 
@@ -47,3 +51,20 @@ class HomePage(Page):
         
         return context
 
+# Tage bis zum Schützenfest :-)
+class DBSPage( Page ):
+    class Meta:
+        verbose_name = 'Anzeige der Tage bis Schützenfest'
+        
+    template = 'seiten/dbs_page.html'
+    title = None
+    slug = 'tbs'
+
+    def get_context( self, request ):
+        context = super(DBSPage, self).get_context(request)
+        today = datetime.now()
+        next = rrule(YEARLY, dtstart = now, byweekday=SU(1), bymonth = 7, count = 10)
+        context['next'] = []
+        for n in next:
+            context.netxt.append(n-relativedelta(days=-1))
+        return context
