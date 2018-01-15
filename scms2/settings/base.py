@@ -37,6 +37,7 @@ INSTALLED_APPS = [
 #    'menu',
     'termine',
     'fotoalben',
+    'docs',
 
     "wagtail.contrib.wagtailroutablepage",
     'wagtailfontawesome',
