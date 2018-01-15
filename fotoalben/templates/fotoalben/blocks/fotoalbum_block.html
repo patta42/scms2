@@ -1,5 +1,6 @@
 {% load wagtailcore_tags wagtailimages_tags %}
 {% if value.show_as == 'single' %}
+  {% if value.album.specific.get_head_image %}
   {% with img=value.album.specific.get_head_image %}
   {% if value.style == 'full' %}
   <div class="imagebox"> 
@@ -27,6 +28,7 @@
     {% endif %}
     </div>
   {% endwith %}
+  {% endif %}
 {% else %}
   <div class="imagebox">
     <h3>{{ value.album.title }}</h3>
