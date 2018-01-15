@@ -1,0 +1,67 @@
+{% extends "wagtailadmin/base.html" %}
+{% load wagtailadmin_tags i18n static gravatar %}
+
+{% block extra_css %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static 'css/docs.css' %}" type="text/css" />
+{% endblock %}
+
+{% block titletag %}{% trans 'Help' %}{% endblock %}
+{% block bodyclass %}help{% endblock %}
+
+{% block content %}
+    {% trans "Help" as title_trans %}
+    {% include "wagtailadmin/shared/header.html" with title=title_trans %}
+
+    <div class="nice-padding">
+        <h2>Inhalt</h2>
+        <nav>
+            <ul class="unlist">
+                <li><a href="#videos">Video-Anleitungen</a>
+		  <ul>
+		    <li><a href="#fotoalbum">Kurze Einführung in das System
+			und Anlegen eines Fotoalbums</a></li>
+		    <li><a href="#article">Anlegen eines Artikels</a></li>
+		  </ul>
+		</li>
+                <li><a href="#gestaltung">Gestaltungsmöglichkeiten der Texte</a></li>
+            </ul>
+        </nav>
+        <section id="videos">
+          <h2>Video-Anleitungen</h2>
+	  <p>Leider ist der Ton bei den Videos teilweise etwas leise, da ich
+	  kein vernünftiges Mikrofon zur Hand hatte. Ich hoffe, dass ihr
+	  trotzdem alles verstehen könnt.</p>
+	  <h3 id="fotoalbum">Kurze Einführung in das System
+	    und Anlegen eines Fotoalbums</h3>
+	  <p>
+	    <video width="960" height="754" controls>
+	      <source src="{% static "docs/videos/fotoalbum_VP8.webm" %}">
+	      <source src="{% static "docs/videos/fotoalbum_x264.mp4" %}">
+	    </video>
+	  </p>
+	  <h3 id="article">Anlegen eines Artikels</h3>
+	  <p>
+	    <video width="974" height="754" controls>
+	      <source src="{% static "docs/videos/article_VP8.webm" %}">
+	      <source src="{% static "docs/videos/article_x264.mp4" %}">
+	    </video>
+	  </p>
+	  <p>Hier der im Video versprochene Link zur Software zum Umwandeln
+	  der Videos. Die Software ist (in meinen Augen) einfach zu bedienen,
+	  kostenlos und zuverlässig. Allerdings beeinhaltet sie etwas
+	  Werbung. Achtet bei der Installation darauf, dass euch nicht noch
+	  andere Software untergejubelt wird, installiert nur das Programm,
+	  nicht weitere Toolbars oder ähnliches:
+	    <ul>
+	      <li><a href="http://www.chip.de/downloads/Any-Video-Converter_42658474.html">Any
+	      Video Converter (bei chip.de)</a></li>
+	      </ul>
+        </section>
+        <section id="gestaltung">
+            <h2>Gestaltungsmöglichkeiten</h2>
+	    <p>Noch in Bearbeitung.</p>
+        </section>
+
+    </div>
+{% endblock %}
