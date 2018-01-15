@@ -108,3 +108,6 @@ scms2/settings/local.py
 # Emacs files
 \#*\#
 *~
+# Videos
+*.webm
+*.mp4
