@@ -124,38 +124,6 @@
     </div>
 
 </div>
-{% comment %}
-    <article>
-	<div class="image-gallery">
-	  {% for i in sections %}
-	  <span id="image-gallery-{{ forloop.counter0 }}" class="target-fix"></span>
-	  {% endfor %}
-	  {% for section in sections %}
-   	  <section> 
-	    <div class="inner-section-container">
-	    {% for img in section %}
-	    <div class="image-container {% cycle 'w200' 'w300' 'w200' 'w350' 'w350' %}">
-	      <div class="image-container-{% cycle 'w200' 'w300' 'w200' 'w350' 'w350' %}">
-
-		{% image img.linked_image original as orig %}
-		<a href="{% pageurl page %}{{ img.id }}/" data-at-200="{{ orig.url }}">
-		{% image img.linked_image fill-350x300 %}		
-		</a>
-	      </div>
-	    </div>
-	    {% endfor %}
-	    <br style="clear:both"/>
-	    </div>
-	    {% subpage_nav forloop.counter0 sections|length %}
-	  </section>
-	  {% endfor %}
-{#	  {% baguette_box_html bilder %}  #}
-	</div>
-      <aside>
-      {% shariff page %}
-      </aside>	
-    </article>
-{% endcomment %}
 {% endblock %}
 
 
