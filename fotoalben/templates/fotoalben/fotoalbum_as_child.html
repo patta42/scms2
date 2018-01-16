@@ -9,7 +9,9 @@
 	{{ page.title }}</h{{depth|add:3}}>
     </header>
     <span class="fotoalbum-teaser-img">
-      {% image page.get_head_image fill-150x150 %}
+      {% if page.get_head_image %}
+        {% image page.get_head_image fill-150x150 %}
+      {% endif %}
     </span>
     <dl>
       <dt>Bilder:</dt>
