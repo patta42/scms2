@@ -44,7 +44,7 @@ def site_navigation( context ):
 def footer( context ):
     current_site = context['request'].site
     n_sites = len( Site.objects.all() )
-    articles = ArticlePage.objects.live().order_by('-first_published_at')
+    articles = ArticlePage.objects.live().order_by('-date')
     latest_articles = {};
     for article in articles:
         site = article.get_site()
@@ -91,7 +91,7 @@ def footer_article ( page ):
         articles.append(
             {
                 'name': website.site_name, 
-                'article' : ArticlePage.objects.in_site(website).order_by('-first_published_at').first()
+                'article' : ArticlePage.objects.in_site(website).order_by('-date').first()
             }
         )
     return { 'articles' : articles }
