@@ -42,6 +42,7 @@ class ArticlePage( Page ):
 
     body = StreamField(
         [
+            # einfache Textbausteine
             ('heading', blocks.CharBlock( 
                 classname = "full title",
                 icon = 'fa fa-header',
@@ -50,17 +51,24 @@ class ArticlePage( Page ):
                 group = 'Allgemeine Texte'
             )),
             ('paragraph', scms2blocks.Absatz( group = 'Allgemeine Texte')),
+            ('table', TableBlock(label = 'Tabelle', group = 'Allgemeine Texte' )),
+
+            # Bilder etc.
             ('image', scms2blocks.ImageBlock(group='Fotos und Bilder')),
             ('img_citation', scms2blocks.ImageAndCitationBlock(group='Fotos und Bilder')),
             ('fotoalbum2', FotoalbumBlock(group='Fotos und Bilder' ) ),
             ('bilderliste', scms2blocks.ImgListBlock(label = 'Fotoliste',group='Fotos und Bilder')),
+
+            # Spezielle Texte
             ('blockquote', scms2blocks.QuoteBlock(group = 'Spezielle Texte')),
             ('komplexe_liste', scms2blocks.ComplexListBlock(group = 'Spezielle Texte')),
+            ('strophe', scms2blocks.Strophe(group = 'Spezielle Texte')),
+
+            # Videos
             ('video', scms2blocks.YoutubeBlock(group = 'Videos')),
             ('local_video', scms2blocks.LocalVideoBlock(group = 'Videos')),
-            ('strophe', scms2blocks.Strophe(group = 'Spezielle Texte')),
             ('video_carousel', scms2blocks.VideoCarouselBlock(group = 'Videos')),
-            ('table', TableBlock(label = 'Tabelle', group = 'Allgemeine Texte' )),
+
         ],
         verbose_name = 'Inhalt')
 
