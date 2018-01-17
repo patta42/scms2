@@ -4,6 +4,8 @@
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.db import models
 
+from datetime import date
+
 from fotoalben.blocks import FotoalbumBlock
 
 import scms2.blocks as scms2blocks
@@ -33,43 +35,35 @@ class ArticlePage( Page ):
             ('image', scms2blocks.ImageBlock(
                 label = 'Bild'
             )),
-#            ('image2', ImageChooserBlock(
-#                label = 'Bild'
-#            )),
         ],
         blank = True,
         null = True
     )
-    body = StreamField([
-        ('heading', blocks.CharBlock( 
-            classname = "full title",
-            icon = 'fa fa-header',
-            label = 'Überschrift',
-            template = 'seiten/blocks/heading.html',
-            group = 'Allgemeine Texte'
-        )),
-        ('paragraph', scms2blocks.Absatz( group = 'Allgemeine Texte')),
-#        ('image', ImageChooserBlock()),
-        ('image', scms2blocks.ImageBlock(group='Fotos und Bilder')),
-        ('img_citation', scms2blocks.ImageAndCitationBlock(group='Fotos und Bilder')),
-#        ('fotoalbum', blocks.PageChooserBlock(
-#            label='Fotoalbum',
-#            target_model='fotoalben.Fotoalbum'
-#        ),),
-        ('fotoalbum2', FotoalbumBlock(group='Fotos und Bilder' ) ),
-        ('bilderliste', scms2blocks.ImgListBlock(label = 'Fotoliste',group='Fotos und Bilder')),
-        ('blockquote', scms2blocks.QuoteBlock(group = 'Spezielle Texte')),
-        ('komplexe_liste', scms2blocks.ComplexListBlock(group = 'Spezielle Texte')),
-        ('video', scms2blocks.YoutubeBlock(group = 'Videos')),
-        ('local_video', scms2blocks.LocalVideoBlock(group = 'Videos')),
-        ('strophe', scms2blocks.Strophe(group = 'Spezielle Texte')),
-        ('video_carousel', scms2blocks.VideoCarouselBlock(group = 'Videos')),
-        ('table', TableBlock(
-            label = 'Tabelle',
-            group = 'Allgemeine Texte'
-        )),
-    ],
-    verbose_name = 'Inhalt')
+
+    body = StreamField(
+        [
+            ('heading', blocks.CharBlock( 
+                classname = "full title",
+                icon = 'fa fa-header',
+                label = 'Überschrift',
+                template = 'seiten/blocks/heading.html',
+                group = 'Allgemeine Texte'
+            )),
+            ('paragraph', scms2blocks.Absatz( group = 'Allgemeine Texte')),
+            ('image', scms2blocks.ImageBlock(group='Fotos und Bilder')),
+            ('img_citation', scms2blocks.ImageAndCitationBlock(group='Fotos und Bilder')),
+            ('fotoalbum2', FotoalbumBlock(group='Fotos und Bilder' ) ),
+            ('bilderliste', scms2blocks.ImgListBlock(label = 'Fotoliste',group='Fotos und Bilder')),
+            ('blockquote', scms2blocks.QuoteBlock(group = 'Spezielle Texte')),
+            ('komplexe_liste', scms2blocks.ComplexListBlock(group = 'Spezielle Texte')),
+            ('video', scms2blocks.YoutubeBlock(group = 'Videos')),
+            ('local_video', scms2blocks.LocalVideoBlock(group = 'Videos')),
+            ('strophe', scms2blocks.Strophe(group = 'Spezielle Texte')),
+            ('video_carousel', scms2blocks.VideoCarouselBlock(group = 'Videos')),
+            ('table', TableBlock(label = 'Tabelle', group = 'Allgemeine Texte' )),
+        ],
+        verbose_name = 'Inhalt')
+
     datum = models.DateField(
         verbose_name = "angezeigtes Datum der Veröffentlichung",
         blank = True,
@@ -93,14 +87,26 @@ class ArticlePage( Page ):
     content_panels = Page.content_panels + [
         StreamFieldPanel('anriss'),
         StreamFieldPanel('body'),
+#        FieldPanel('autor')
+    ]
+
+    promote_panels = Page.promote_panels + [
         MultiFieldPanel([
             FieldRowPanel([
                 FieldPanel('datum'),
                 FieldPanel('enddatum')
             ])
         ], heading = 'Angezeigtes Datum'),
-        FieldPanel('autor')
     ]
+
+    def clean( self ):
+        super(ArticlePage, self).clean()
+        if not self.datum:
+            if self.go_live_at:
+                self.datum = self.go_live_at.date()
+            else:
+                self.datum = date.today()
+
 
     def get_article_date( self ):
         return self.datum or self.go_live_at or self.first_published_at
@@ -111,6 +117,8 @@ class ArticlesIndexPage( Page ):
     icon = "newspaper-o"
     subpage_types = [ 'ArticleContainer' ]
     parent_page_types = [ 'home.HomePage' ]
+
+
     def get_icon(self):
         return self.icon
     def get_context(self, request):
