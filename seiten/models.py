@@ -61,25 +61,33 @@ class Seite( Page ):
     )
     body = StreamField(
         [
+            # Simple Textbausteine
             ('heading', scms2blocks.HeadingBlock( 
                 classname = "full title",group = 'Einfacher Text'
             )),
             ('paragraph', scms2blocks.Absatz(group = 'Einfacher Text')),
-            ('quote', scms2blocks.QuoteBlock(group = 'Spezieller Text')),
+            ('table', TableBlock(label = 'Tabelle',group = 'Einfacher Text')),
+
+            # Fotos und Bilder
             ('image', scms2blocks.ImageBlock(group = 'Fotos und Bilder')),
             ('album', FotoalbumBlock(group = 'Fotos und Bilder')),
             ('bilderliste', scms2blocks.ImgListBlock(label = 'Fotoliste',group = 'Fotos und Bilder')),
-            ('table', TableBlock(label = 'Tabelle',group = 'Einfacher Text')),
-            ('komplexe_liste', scms2blocks.ComplexListBlock(group = 'Spezieller Text')),
-#            ('linked_documents', DocumentChooserBlock(
-#                label='Verlinktes Dokument')),
             ('img_citation', scms2blocks.ImageAndCitationBlock(group = 'Fotos und Bilder')),
-            ('map', scms2blocks.OpenStreetMapBlock(group = 'spezielle Inhalte')),
+            
+            # spezieller text
+            ('quote', scms2blocks.QuoteBlock(group = 'Spezieller Text')),
+            ('komplexe_liste', scms2blocks.ComplexListBlock(group = 'Spezieller Text')),
+            ('strophe', scms2blocks.Strophe(group = 'Spezieller Text')),
+            ('adresse', scms2blocks.Adresse(group = 'Spezieller Text')),
+
+            # Videos
             ('youtube_video', EmbedBlock(group = 'Videos')),
             ('local_video', scms2blocks.LocalVideoBlock(group = 'Videos')),
             ('video_karussell', scms2blocks.VideoCarouselBlock(group = 'Videos')),
-            ('strophe', scms2blocks.Strophe(group = 'Spezieller Text')),
-            ('adresse', scms2blocks.Adresse(group = 'Spezieller Text')),
+
+            # Spezieller Inhalt
+
+            ('map', scms2blocks.OpenStreetMapBlock(group = 'spezielle Inhalte')),
             ('sitemap',scms2blocks.SitemapBlock(group = 'spezielle Inhalte')),
             ('toc',TOCBlock(group = 'spezielle Inhalte')),
         ],
