@@ -94,7 +94,7 @@ td {
   /* Festlegungen */ 
     .fotoalbum-list{
 	position:relative;
-	width:60em;
+	max-width:60em;
     }
 }
 
