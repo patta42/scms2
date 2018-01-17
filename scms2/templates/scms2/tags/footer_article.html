@@ -1,7 +1,7 @@
 {% load wagtailimages_tags wagtailcore_tags %}
 {% for article in articles %}
-  {% if article %}
     <dt>{{article.name}}</dt>
+  {% if article.article %}
     <dd><a href="{% pageurl article.article %}">{{ article.article }}</a></dd>
   {% endif %}
 {% endfor %}
