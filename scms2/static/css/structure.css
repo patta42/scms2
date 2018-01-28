@@ -133,7 +133,7 @@ aside{
 	position:relative;
     }
     .fixed{
-	position:fixed;
+	position:fixed!important;
 	background-color:inherit;
 	width:100%;
 	z-index:100;
@@ -544,5 +544,15 @@ aside{
     }
     .ff #vereinsmenu ul li ul{
 	display:none;
+    }
+    #vereinsmenu ul li:hover ul{
+	position:absolute;
+	left:0;
+	padding:0em;
+	padding-bottom:1rem;
+	margin-top:-2px;
+	border:2px solid #111;
+	border-top-color:transparent;
+	height:auto;
     }
 }
